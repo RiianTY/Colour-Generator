@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colour Generator</title>
+</head>
+<body>
+
+  <div class="container">
+    <form class="hud-con" action="process_form.php" method="post">
+        <input id="colour-selector" type="color">
+        <select name="colours" id="colours">
+          <option value="monochrome">Monochrome</option>
+          <option value="monochrome-dark">Monochrome dark</option>
+          <option value="monochrome-light">Monochrome light</option>
+          <option value="analogic">Analogic</option>
+          <option value="complement">Complement</option>
+          <option value="analogic-complement">Analogic complement</option>
+          <option value="triad">Triad</option>
+        </select>
+        <button id="colour-get">Get colour scheme</button>
+    </form>
+    <div class="colour-container">
+    </div>
+    <div class="colour-values"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  height: 100vh;
+}
+
+.hud-con {
+  width: 50%;
+  text-align: center;
+}
+
+.hud-con input {
+  height: 40px;
+  width: 50px;
+  padding: 0;
+  border: 0;
+}
+
+.colour-container {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid red;
+  height: 70vh;
+  width: 50%;
+}
+
+.colours {
+  text-align: center;
+}
