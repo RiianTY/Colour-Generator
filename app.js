@@ -4,7 +4,6 @@ const selectedValue = document.querySelector("select[name='colours']");
 const getColours = document.querySelector("#colour-get");
 const colourDisplay = document.querySelector(".colour-container");
 const colourValues = document.querySelector(".colour-values");
-const html = document.querySelector(".colour-container");
 
 formData.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -20,15 +19,28 @@ formData.addEventListener("submit", function (e) {
   )
     .then((res) => res.json())
     .then((data) => {
-      let html = document.querySelector(".colour-container");
       for (let i = 0; i < data.colors.length; i++) {
-        html.innerHTML += `
+        colourDisplay.innerHTML += `
           <div class="colours">
-          <img width="100%" height="100%" src="${data.colors[i].image.bare}"></img>
-          <h3>${data.colors[i].hex.value}</h3>
+            <img width="100%" height="100%" src="${data.colors[i].image.bare}"></img>
+            <h3>${data.colors[i].hex.value}</h3>
           </div>
         `;
       }
     });
-  html.innerHTML = "";
+  colourDisplay.innerHTML = "";
+});
+
+colourDisplay.addEventListener("click", function (e) {
+  e.preventDefault();
+  // Check if the clicked element is an image
+  if (e.target.tagName === "IMG") {
+    // Get the hex value from the sibling h3 element
+    const hexValue = e.target.nextElementSibling.textContent;
+
+    navigator.clipboard.writeText(hexValue).then(() => {
+      // Optional: Provide user feedback
+      alert(`Copied ${hexValue} to clipboard!`);
+    });
+  }
 });

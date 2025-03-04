@@ -1,6 +1,7 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: #1d1e21;
 }
 
 .container {
@@ -12,26 +13,63 @@ body {
   height: 100vh;
 }
 
+#inner-con {
+  width: 80%;
+  height: 80%;
+  background-color: #1f2937;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.116);
+  padding: 0.5rem;
+}
+
 .hud-con {
-  width: 50%;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  margin: auto;
+  margin: 10px 0;
 }
 
 .hud-con input {
   height: 40px;
   width: 50px;
   padding: 0;
-  border: 0;
+  border: none;
+  border-radius: 5px;
+}
+
+.hud-con select {
+  color: rgb(199, 199, 199);
+  background-color: #1f293a;
+  height: 35px;
+  width: 50%;
+  margin: 0 15px;
+  padding: 0 10px;
+  border-radius: 5px;
+}
+
+.hud-con button {
+  background-color: #3d4b60;
+  color: rgb(199, 199, 199);
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.hud-con button:hover {
+  background-color: #2d3746;
 }
 
 .colour-container {
   display: flex;
   flex-direction: row;
-  border: 1px solid red;
-  height: 70vh;
-  width: 50%;
+  height: 85%;
 }
 
-.colours {
+.colours h3 {
+  color: rgb(199, 199, 199);
+  margin: 0;
+  padding: 0;
   text-align: center;
 }
