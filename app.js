@@ -7,11 +7,11 @@ const colourValues = document.querySelector(".colour-values");
 
 formData.addEventListener("submit", function (e) {
   e.preventDefault();
-
-  let colorValue = colourSelector.value.slice(1);
+  // Removes the # from the hex value for api use
+  let colourValue = colourSelector.value.slice(1);
 
   fetch(
-    `https://www.thecolorapi.com/scheme?hex=${colorValue}&mode=${selectedValue.value}`,
+    `https://www.thecolorapi.com/scheme?hex=${colourValue}&mode=${selectedValue.value}`,
     {
       method: "Get",
       headers: { "Content-Type": "application/json" },
@@ -19,7 +19,9 @@ formData.addEventListener("submit", function (e) {
   )
     .then((res) => res.json())
     .then((data) => {
+      // Loops through the colors array in the api call
       for (let i = 0; i < data.colors.length; i++) {
+        // Creates the elements with the image and hex value data
         colourDisplay.innerHTML += `
           <div class="colours">
             <img width="100%" height="100%" src="${data.colors[i].image.bare}"></img>
@@ -28,6 +30,7 @@ formData.addEventListener("submit", function (e) {
         `;
       }
     });
+  // Resets the innerHTML to prevent adding on to existing api calls
   colourDisplay.innerHTML = "";
 });
 
@@ -39,7 +42,7 @@ colourDisplay.addEventListener("click", function (e) {
     const hexValue = e.target.nextElementSibling.textContent;
 
     navigator.clipboard.writeText(hexValue).then(() => {
-      // Optional: Provide user feedback
+      // Provide user feedback
       alert(`Copied ${hexValue} to clipboard!`);
     });
   }
